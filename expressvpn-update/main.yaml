@@ -1,0 +1,28 @@
+---
+### TASKS: What does this playbook do??
+
+- name: ExpressVpn Update
+  hosts: npi32pupu
+  vars:
+    proxy: # default empty
+
+  tasks:
+    - name: Get Latest Package Url
+      delegate_to: localhost
+      shell: expressvpn-update
+      register: url
+    environment:
+      https_proxy: "{{ proxy }}"
+    - name: Download Package
+      get_url:
+        url: "{{ url.stdout }}"
+        dest: "/tmp/{{ ansible_user }}/"
+        owner: "{{ ansible_user }}"
+      environment:
+        https_proxy: "{{ proxy }}"
+      register: file
+    - name: Install Package
+      become: true
+      apt:
+        deb: "{{ file.dest }}"
+# vim:ft=ansible:
