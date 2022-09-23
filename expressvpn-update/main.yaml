@@ -11,8 +11,8 @@
       delegate_to: localhost
       shell: expressvpn-update
       register: url
-    environment:
-      https_proxy: "{{ proxy }}"
+      environment:
+        https_proxy: "{{ proxy }}"
     - name: Download Package
       get_url:
         url: "{{ url.stdout }}"
@@ -25,4 +25,37 @@
       become: true
       apt:
         deb: "{{ file.dest }}"
+
+- name: ExpressVpn Acitvate and Connect
+  hosts: npi32pupu
+  vars:
+    activate_code: # 激活码
+
+  tasks:
+    - name: install pip3
+      become: true
+      apt: 
+        name: python3-pip
+        state: present
+    - name: Install pexpect
+      become: true
+      pip:
+         name: pexpect
+    - name: activate
+      ansible.builtin.expect:
+        command: /usr/bin/expressvpn activate
+        responses:
+          code: "{{ activate_code }}"
+          (Y/n): "n"
+    - name: connect
+      shell: /usr/bin/expressvpn connect
+
+- name: ExpressVpn Reconnect
+  hosts: npi32pupu
+
+  tasks:
+    - name: disconnect
+      shell: /usr/bin/expressvpn disconnect
+    - name: connect
+      shell: /usr/bin/expressvpn connect
 # vim:ft=ansible:
