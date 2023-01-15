@@ -8,7 +8,7 @@ sed -i 's#^\(RUN apt-get -y update .*\)#'"$REPLECE_SOURCE"'\n\1#g' pi-gen/Docker
 
 
 BOOTSTRAP_URL=http://ftp.cn.debian.org/debian/
-sed -i 's#\(.*bootstrap.*\) http://deb.debian.org/debian/#\1'"$BOOTSTRAP_URL"'#g' pi-gen/stage0/prerun.sh
+sed -i 's#\(.*bootstrap.*\) http://deb.debian.org/debian/#\1'" $BOOTSTRAP_URL"'#g' pi-gen/stage0/prerun.sh
 
 # 替换镜像中的中文源
 SECURITY_SOURCE='ftp.cn.debian.org/debian-security'
