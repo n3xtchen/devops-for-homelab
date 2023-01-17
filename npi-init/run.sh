@@ -1,5 +1,6 @@
 
 cp config.tmpl pi-gen/config
+cp -r 04-cloud-init pi-gen/stage2/
 
 cd pi-gen
 
