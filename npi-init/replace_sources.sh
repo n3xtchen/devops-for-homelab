@@ -6,7 +6,6 @@ DEBIAN_PRIMARY_SOURCE='ftp.cn.debian.org/debian'
 REPLECE_SOURCE='RUN sed -i '"'"'s|deb.debian.org/debian|'"$DEBIAN_PRIMARY_SOURCE"'|g'"'"' /etc/apt/sources.list'
 sed -i 's#^\(RUN apt-get -y update .*\)#'"$REPLECE_SOURCE"'\n\1#g' pi-gen/Dockerfile
 
-
 BOOTSTRAP_URL=http://ftp.cn.debian.org/debian/
 sed -i 's#\(.*bootstrap.*\) http://deb.debian.org/debian/#\1'" $BOOTSTRAP_URL"'#g' pi-gen/stage0/prerun.sh
 

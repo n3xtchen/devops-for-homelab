@@ -1,0 +1,2 @@
+deb [arch=arm64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian RELEASE stable
+# deb [arch=arm64 signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/debian RELEASE stable
