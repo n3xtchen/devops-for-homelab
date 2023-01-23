@@ -20,7 +20,7 @@ services:
       - ${GOGS_PORT:-3000}:3000
     volumes:
       - git-data:/data/git:rw
-      # - ./conf/app.ini:/data/gogs/conf/app.ini:ro
+      - ./conf/app.ini:/data/gogs/conf/app.ini:ro
     environment:
       - TZ=Asia/Shanghai
     restart: always
