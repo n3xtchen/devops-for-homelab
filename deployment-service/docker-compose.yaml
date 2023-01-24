@@ -3,30 +3,32 @@ services:
   db:
     container_name: postgres
     image: postgres
+    user: 501:20
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-nextchen}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_DB: gogs
       PGDATA: /data/postgres
     volumes:
-       - postgres-data:/data/postgres:rw
+       - ./data/postgres:/data/postgres:rw
     ports:
       - "5432:5432"
     restart: unless-stopped
-  gogs:
-    container_name: gogs
-    image: gogs/gogs
-    ports:
-      - ${GOGS_PORT:-3000}:3000
-    volumes:
-      - git-data:/data/git:rw
-      - ./conf/app.ini:/data/gogs/conf/app.ini:ro
-    environment:
-      - TZ=Asia/Shanghai
-    restart: always
-    depends_on:
-      - db 
+  # gogs:
+  #   container_name: gogs
+  #   image: gogs/gogs
+  #   user: 501:20
+  #   ports:
+  #     - ${GOGS_PORT:-3000}:3000
+  #   volumes:
+  #     - ./data/git:/data/git:rw
+  #     # - ./conf/app.ini:/data/gogs/conf/app.ini:ro
+  #   environment:
+  #     - TZ=Asia/Shanghai
+  #   restart: always
 
-volumes:
-  postgres-data:
-  git-data:
+# volumes:
+#   postgres-data:
+#   git-data:
+#   gogs-config:
+
