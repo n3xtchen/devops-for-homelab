@@ -1,0 +1,33 @@
+version: '3'
+services:
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: nextchen
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: gogs
+    volumes:
+       - pg_data:/var/lib/postgresql/data:rw
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+  gogs:
+    container_name: gogs
+    image: gogs/gogs
+    ports:
+      - ${GOGS_PORT:-3000}:3000
+    volumes:
+      - gogs_data:/data:rw
+      - gogs_backup:/backup:rw
+      - ./conf/app.ini:/data/gogs/conf/app.ini:ro
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always
+    depends_on:
+      - db
+
+volumes:
+  pg_data:
+  gogs_data:
+  gogs_backup:
