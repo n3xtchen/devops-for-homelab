@@ -43,8 +43,10 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - drone_data:/var/lib/drone
     environment:
+      - DRONE_AGENTS_ENABLED=true
+      # - DRONE_USER_CREATE=username:${DRONE_ADMIN:-gogs},admin:true
       - DRONE_SERVER_PROTO=http
-      - DRONE_SERVER_HOST=${DRONE_SERVER_IP:-0.0.0.0}
+      - DRONE_SERVER_HOST=drone-server
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET:-123456}
       - DRONE_DATABASE_DATASOURCE=postgres://${DRONE_DB_USER:-drone}:${DRONE_DB_PASS:-drone}@db:5432/${DRONE_DB:-drone}?sslmode=disable
       - DRONE_DATABASE_DRIVER=postgres
@@ -57,6 +59,24 @@ services:
     restart: always
     depends_on:
       - db
+  drone-agent:
+    image: drone/drone-runner-docker:1
+    container_name: drone-agent
+    depends_on:
+      - drone-server
+    # ports:
+    #   - 3030:3000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - DRONE_SERVER_PROTO=http
+      - DRONE_RPC_HOST=drone-server
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET:-123456}
+      - DRONE_RUNNER_CAPACITY=${DRONE_RUNNER_CAPACITY:-2}
+      - DRONE_RUNNER_NAME=my-first-runner
+      - DRONE_DEBUG=true
+      - TZ=Asia/Shanghai
+    restart: always
 
 volumes:
   pg_data:
