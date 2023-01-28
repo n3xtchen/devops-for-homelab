@@ -9,6 +9,9 @@ services:
       GOGS_DATABASE: ${GOGS_DB:-gogs}
       GOGS_USER: ${GOGS_DB_USER:-gogs}
       GOGS_PASSWORD: ${GOGS_DB_PASS:-gogs}
+      DRONE_DATABASE: ${DRONE_DB:-drone}
+      DRONE_USER: ${DRONE_DB_USER:-drone}
+      DRONE_PASSWORD: ${DRONE_DB_PASS:-drone}
     volumes:
        - pg_data:/var/lib/postgresql/data
        - ./conf/init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
@@ -43,8 +46,8 @@ services:
       - DRONE_SERVER_PROTO=http
       - DRONE_SERVER_HOST=${DRONE_SERVER_IP:-0.0.0.0}
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET:-123456}
-      - DRONE_DATABASE_DATASOURCE=/var/lib/drone/drone.sqlite
-      - DRONE_DATABASE_DRIVER=sqlite3
+      - DRONE_DATABASE_DATASOURCE=postgres://${DRONE_DB_USER:-drone}:${DRONE_DB_PASS:-drone}@db:5432/${DRONE_DB:-drone}?sslmode=disable
+      - DRONE_DATABASE_DRIVER=postgres
       - DRONE_DEBUG=true
       - DRONE_PROVIDER=gogs
       - DRONE_GOGS=true
@@ -52,6 +55,8 @@ services:
       - DRONE_GOGS_SKIP_VERIFY=false
       - TZ=Asia/Shanghai
     restart: always
+    depends_on:
+      - db
 
 volumes:
   pg_data:
