@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   db:
     container_name: postgres
@@ -35,46 +35,55 @@ services:
       - db
 
   drone-server:
-    image: drone/drone:2
+    image: drone/drone:2-linux-arm64
     container_name: drone-server
     ports:
-      - ${DRONE_SERVER_PORT:-8080}:80
+      - 80:80
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - drone_data:/var/lib/drone
+      # - /var/run/docker.sock:/var/run/docker.sock
+      - drone_lib:/var/lib/drone
+      - drone_data:/data
     environment:
       - DRONE_AGENTS_ENABLED=true
-      # - DRONE_USER_CREATE=username:${DRONE_ADMIN:-gogs},admin:true
+      - DRONE_USER_CREATE=username:${DRONE_ADMIN:-gogs},admin:true
       - DRONE_SERVER_PROTO=http
       - DRONE_SERVER_HOST=drone-server
-      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET:-123456}
-      - DRONE_DATABASE_DATASOURCE=postgres://${DRONE_DB_USER:-drone}:${DRONE_DB_PASS:-drone}@db:5432/${DRONE_DB:-drone}?sslmode=disable
-      - DRONE_DATABASE_DRIVER=postgres
-      - DRONE_DEBUG=true
-      - DRONE_PROVIDER=gogs
-      - DRONE_GOGS=true
+      - DRONE_RPC_SECRET=d295982b36f2cfbc1fd657e476d2e846
       - DRONE_GOGS_SERVER=http://gogs:3000
-      - DRONE_GOGS_SKIP_VERIFY=false
+      - DRONE_DATABASE_DRIVER=postgres
+      - DRONE_DATABASE_DATASOURCE=postgres://${DRONE_DB_USER:-drone}:${DRONE_DB_PASS:-drone}@db:5432/${DRONE_DB:-drone}?sslmode=disable
+      - DRONE_LOGS_DEBUG=true
+      - DRONE_LOGS_TRACE=true
+      - DRONE_LOGS_TEXT=true
+      - DRONE_LOGS_PRETTY=true
+      - DRONE_LOGS_COLOR=true
+      # - DRONE_GOGS_SKIP_VERIFY=false
       - TZ=Asia/Shanghai
     restart: always
     depends_on:
       - db
   drone-agent:
-    image: drone/drone-runner-docker:1
+    image: drone/drone-runner-docker:1-linux-arm64
     container_name: drone-agent
     depends_on:
       - drone-server
-    # ports:
-    #   - 3030:3000
+    ports:
+      - 3001:3001
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DRONE_SERVER_PROTO=http
       - DRONE_RPC_HOST=drone-server
-      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET:-123456}
-      - DRONE_RUNNER_CAPACITY=${DRONE_RUNNER_CAPACITY:-2}
+      - DRONE_RPC_SECRET=d295982b36f2cfbc1fd657e476d2e846
+      - DRONE_RUNNER_CAPACITY=${DRONE_RUNNER_CAPACITY:-1}
       - DRONE_RUNNER_NAME=my-first-runner
       - DRONE_DEBUG=true
+      - DRONE_TRACE=true
+      - DRONE_RPC_DUMP_HTTP=true
+      - DRONE_RPC_DUMP_HTTP_BODY=true
+      - DRONE_HTTP_BIND=:3001
+      - DRONE_UI_USERNAME=root
+      - DRONE_UI_PASSWORD=root
       - TZ=Asia/Shanghai
     restart: always
 
@@ -82,4 +91,5 @@ volumes:
   pg_data:
   gogs_data:
   gogs_backup:
+  drone_lib:
   drone_data:
