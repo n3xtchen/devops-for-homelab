@@ -1,72 +1,8 @@
 version: '3.8'
 services:
-  db:
-    container_name: postgres
-    image: postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_USER:-postgres}
-      GOGS_DATABASE: ${GOGS_DB:-gogs}
-      GOGS_USER: ${GOGS_DB_USER:-gogs}
-      GOGS_PASSWORD: ${GOGS_DB_PASS:-gogs}
-      DRONE_DATABASE: ${DRONE_DB:-drone}
-      DRONE_USER: ${DRONE_DB_USER:-drone}
-      DRONE_PASSWORD: ${DRONE_DB_PASS:-drone}
-    volumes:
-       - pg_data:/var/lib/postgresql/data
-       - ./conf/init-database.sh:/docker-entrypoint-initdb.d/init-database.sh
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-
-  gogs:
-    container_name: gogs
-    image: gogs/gogs
-    ports:
-      - ${GOGS_PORT:-3000}:3000
-    volumes:
-      - gogs_data:/data
-      - gogs_backup:/backup
-      - ./conf/app.ini:/data/gogs/conf/app.ini:ro
-    environment:
-      - TZ=Asia/Shanghai
-    restart: always
-    depends_on:
-      - db
-
-  drone-server:
-    image: drone/drone:2-linux-arm64
-    container_name: drone-server
-    ports:
-      - 80:80
-    volumes:
-      # - /var/run/docker.sock:/var/run/docker.sock
-      - drone_lib:/var/lib/drone
-      - drone_data:/data
-    environment:
-      - DRONE_AGENTS_ENABLED=true
-      - DRONE_USER_CREATE=username:${DRONE_ADMIN:-gogs},admin:true
-      - DRONE_SERVER_PROTO=http
-      - DRONE_SERVER_HOST=drone-server
-      - DRONE_RPC_SECRET=d295982b36f2cfbc1fd657e476d2e846
-      - DRONE_GOGS_SERVER=http://gogs:3000
-      - DRONE_DATABASE_DRIVER=postgres
-      - DRONE_DATABASE_DATASOURCE=postgres://${DRONE_DB_USER:-drone}:${DRONE_DB_PASS:-drone}@db:5432/${DRONE_DB:-drone}?sslmode=disable
-      - DRONE_LOGS_DEBUG=true
-      - DRONE_LOGS_TRACE=true
-      - DRONE_LOGS_TEXT=true
-      - DRONE_LOGS_PRETTY=true
-      - DRONE_LOGS_COLOR=true
-      # - DRONE_GOGS_SKIP_VERIFY=false
-      - TZ=Asia/Shanghai
-    restart: always
-    depends_on:
-      - db
   drone-agent:
     image: drone/drone-runner-docker:1-linux-arm64
     container_name: drone-agent
-    depends_on:
-      - drone-server
     ports:
       - 3001:3001
     volumes:
@@ -84,14 +20,12 @@ services:
       - DRONE_HTTP_BIND=:3001
       - DRONE_UI_USERNAME=root
       - DRONE_UI_PASSWORD=root
+      - DRONE_RUNNER_NETWORKS=deployment-service_default
       - TZ=Asia/Shanghai
-    extra_hosts:
-      - "drone-server:${DRONE_SERVER:10.0.0.70}"
     restart: always
 
-volumes:
-  pg_data:
-  gogs_data:
-  gogs_backup:
-  drone_lib:
-  drone_data:
+networks:
+  default:
+    name: deployment-service_default
+    external: true
+
