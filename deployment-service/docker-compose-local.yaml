@@ -77,6 +77,7 @@ services:
       - DRONE_RPC_SECRET=d295982b36f2cfbc1fd657e476d2e846
       - DRONE_RUNNER_CAPACITY=${DRONE_RUNNER_CAPACITY:-1}
       - DRONE_RUNNER_NAME=my-first-runner
+      - DRONE_RUNNER_NETWORKS=deployment-service_default
       - DRONE_DEBUG=true
       - DRONE_TRACE=true
       - DRONE_RPC_DUMP_HTTP=true
