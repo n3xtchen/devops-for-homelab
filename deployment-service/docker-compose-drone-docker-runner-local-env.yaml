@@ -1,0 +1,12 @@
+version: "3"
+services:
+  drone-docker-agent:
+    environment:
+      - DRONE_RUNNER_NETWORKS=deployment-service_default
+      - DRONE_UI_USERNAME=root
+      - DRONE_UI_PASSWORD=root
+
+networks:
+  default:
+    name: deployment-service_default
+    external: true
