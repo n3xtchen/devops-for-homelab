@@ -2,6 +2,8 @@
 
 DEBIAN_PRIMARY_SOURCE='ftp.cn.debian.org/debian'
 
+sed -i 's/x86_64|aarch64/x86_64/g' pi-gen/build-docker.sh
+
 # 替换中文源
 REPLECE_SOURCE='RUN sed -i '"'"'s|deb.debian.org/debian|'"$DEBIAN_PRIMARY_SOURCE"'|g'"'"' /etc/apt/sources.list'
 sed -i 's#^\(RUN apt-get -y update .*\)#'"$REPLECE_SOURCE"'\n\1#g' pi-gen/Dockerfile
@@ -10,11 +12,11 @@ BOOTSTRAP_URL=http://ftp.cn.debian.org/raspbian/raspbian/
 sed -i 's#\(.*bootstrap.*\) http://raspbian.raspberrypi.org/raspbian/#\1'" $BOOTSTRAP_URL"'#g' pi-gen/stage0/prerun.sh
 
 # 替换镜像中的中文源
-# DEBIAN_SECURITY_SOURCE='ftp.cn.debian.org/debian-security'
-# sed -i 's#deb.debian.org/debian#'"$DEBIAN_PRIMARY_SOURCE"'#g;s#security.debian.org/debian-security#'"$DEBIAN_SECURITY_SOURCE"'#g' pi-gen/stage0/00-configure-apt/files/sources.list
+PI_PRIMARY_SOURCE=ftp.cn.debian.org/raspbian/raspbian
+sed -i 's#raspbian.raspberrypi.org/raspbian#'"$PI_PRIMARY_SOURCE"'#g' pi-gen/stage0/00-configure-apt/files/sources.list
 
-PI_PRIMARY_SOURCE='ftp.cn.debian.org/raspberrypi/debian'
-sed -i 's#archive.raspberrypi.org/debian#'"$PI_PRIMARY_SOURCE"'#g' pi-gen/stage0/00-configure-apt/files/raspi.list
+PI_ARCHIVE_SOURCE='ftp.cn.debian.org/raspberrypi/debian'
+sed -i 's#archive.raspberrypi.org/debian#'"$PI_ARCHIVE_SOURCE"'#g' pi-gen/stage0/00-configure-apt/files/raspi.list
 
 # 替换 DNS
 NEW_DNS='233.6.6.6'
