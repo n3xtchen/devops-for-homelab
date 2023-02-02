@@ -1,9 +1,10 @@
-
 cp config.tmpl pi-gen/config
-cp -r 04-cloud-init pi-gen/stage2/
 
 # add docker
 cp -r 04-docker/ pi-gen/stage2
+
+# add cloud-init
+cp -r 05-cloud-init pi-gen/stage2/
 
 cd pi-gen
 
