@@ -1,0 +1,15 @@
+FROM alpine:3
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN apk add --no-cache ca-certificates git git-lfs openssh curl perl aws-cli sudo
+
+RUN wget https://github.com/drone/drone-git/archive/refs/tags/v1.2.1.tar.gz
+RUN tar xf v1.2.1.tar.gz
+RUN cp drone-git-1.2.1/posix/* /usr/local/bin/
+RUN rm -r v1.2.1.tar.gz drone-git-1.2.1
+
+# RUN adduser -g Drone -s /bin/sh -D -u 1000 drone
+# RUN echo 'drone ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/drone
+# USER drone:drone
+# RUN chmod -R 777 /home/drone
+
+ENTRYPOINT ["/usr/local/bin/clone"]

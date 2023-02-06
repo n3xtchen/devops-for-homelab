@@ -1,4 +1,5 @@
 FROM alpine:3 as alpine
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
 RUN apk add -U --no-cache ca-certificates
 
 RUN wget https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2.4.0-static-linux-arm32v7.tar.xz
@@ -20,7 +21,7 @@ EXPOSE 3000
 
 ENV GODEBUG netdns=go
 ENV DRONE_PLATFORM_OS linux
-ENV DRONE_PLATFORM_ARCH arm
+ENV DRONE_PLATFORM_ARCH arm32v7
 
 COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=alpine /bin/tmate /bin/
