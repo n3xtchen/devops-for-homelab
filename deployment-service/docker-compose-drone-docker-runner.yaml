@@ -1,7 +1,7 @@
 version: '3'
 services:
   drone-docker-agent:
-    image: drone/drone-runner-docker:1-linux-arm64
+    image: ${DRONE_RUNNER_DOCKER_IMG:-"drone/drone-runner-docker:1-linux-arm64"}
     container_name: drone-agent
     ports:
       - ${AGENT_PORT:-3000}:3000
