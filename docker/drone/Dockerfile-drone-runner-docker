@@ -6,7 +6,8 @@ RUN tar -xf tmate-2.4.0-static-linux-arm32v7.tar.xz
 RUN mv tmate-2.4.0-static-linux-arm32v7/tmate /bin/
 RUN chmod +x /bin/tmate
 
-FROM golang:1 as golang
+FROM golang:1-alpine3.17 as golang
+RUN apk add -U --no-cache ca-certificates
 
 RUN https://github.com/drone-runners/drone-runner-docker/archive/refs/tags/v1.8.3.tar.gz
 RUN tar -x v1.8.3.tar.gz
