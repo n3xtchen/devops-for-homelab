@@ -9,12 +9,11 @@ RUN chmod +x /bin/tmate
 FROM golang:1-alpine3.17 as golang
 RUN apk add -U --no-cache ca-certificates
 
-RUN https://github.com/drone-runners/drone-runner-docker/archive/refs/tags/v1.8.3.tar.gz
-RUN tar -x v1.8.3.tar.gz
-RUN cd v1.8.3
+RUN wget https://github.com/drone-runners/drone-runner-docker/archive/refs/tags/v1.8.3.tar.gz
+RUN tar xf v1.8.3.tar.gz
 RUN go env -w GO111MODULE=on
 RUN go env -w  GOPROXY=https://goproxy.cn,direct
-RUN go build
+RUN cd drone-runner-docker-1.8.3 && go build
 
 FROM scratch
 EXPOSE 3000
@@ -25,7 +24,7 @@ ENV DRONE_PLATFORM_ARCH arm
 
 COPY --from=alpine /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=alpine /bin/tmate /bin/
-COPY --from=golang /go/v1.8.3/drone-runner-docker /bin
+COPY --from=golang /go/drone-runner-docker-1.8.3/drone-runner-docker /bin
 
 LABEL com.centurylinklabs.watchtower.stop-signal="SIGINT"
 
