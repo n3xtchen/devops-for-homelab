@@ -6,6 +6,7 @@ networks:
 
 volumes:
   prometheus_data:
+  grafana-data:
 
 services:
   node-exporter:
