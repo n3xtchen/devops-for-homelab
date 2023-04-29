@@ -10,9 +10,3 @@ scrape_configs:
   - job_name: 'node'
     static_configs:
       - targets: ['host.internal:9100']
-
-remote_write:
-  - url: 'grafana:3000'
-    basic_auth:
-      username: 'admin'
-      password: 'n3xtchen'
