@@ -1,5 +1,5 @@
 global:
-  scrape_interval: 1m
+  scrape_interval: 30s
 
 scrape_configs:
   - job_name: 'prometheus'
@@ -9,4 +9,8 @@ scrape_configs:
 
   - job_name: 'node'
     static_configs:
-      - targets: ['host.internal:9100']
+      - targets: 
+        - 'host.internal:9100'
+        - '10.0.0.80:9100'
+        - '10.0.0.79:9100'
+        - '10.0.0.86:9100'
