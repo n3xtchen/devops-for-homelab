@@ -1,0 +1,9 @@
+FROM alpine:3.13
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories
+RUN apk add --no-cache --update ca-certificates bash openssh-client rsync
+RUN wget https://github.com/Drillster/drone-rsync/archive/refs/heads/master.tar.gz
+RUN tar xf master.tar.gz
+RUN cp drone-rsync-master/upload.sh /usr/local/
+RUN rm -r master.tar.gz drone-rsync-master
+
+ENTRYPOINT ["/usr/local/upload.sh"]

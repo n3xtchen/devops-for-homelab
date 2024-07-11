@@ -1,0 +1,10 @@
+version: "3"
+services:
+  jekyll:
+    container_name: jekyll-container
+    image: jekyll/jekyll:4
+    ports:
+      - 4000:4000
+    volumes:
+      - ./data/:/srv/jekyll
+    command: jekyll serve
