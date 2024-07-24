@@ -1,0 +1,32 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "77d42ba4cf7763acf2d56f53aed2b4dcf4dc5fe4"
+      },
+      "homebrew/services": {
+        "revision": "afe323972f83740524655b530026eea55d466124"
+      }
+    },
+    "cask": {
+      "clashx": {
+        "version": "1.118.0",
+        "options": {
+          "full_name": "clashx"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "sonoma": {
+        "HOMEBREW_VERSION": "4.3.10",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "15.0.3.9.4",
+        "Xcode": "15.4",
+        "macOS": "14.5"
+      }
+    }
+  }
+}
