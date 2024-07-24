@@ -1,0 +1,75 @@
+{
+  "entries": {
+    "tap": {
+      "homebrew/bundle": {
+        "revision": "77d42ba4cf7763acf2d56f53aed2b4dcf4dc5fe4"
+      }
+    },
+    "brew": {
+      "curl": {
+        "version": "8.8.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles",
+          "files": {
+            "arm64_sonoma": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.arm64_sonoma.bottle.tar.gz",
+              "sha256": "f2c86a65bd81527768bfe1464538cdafa4c84ee8bde7ee8fca55e3eb7b99c93d"
+            },
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.arm64_ventura.bottle.tar.gz",
+              "sha256": "41cd3aa1fb8fda366927e67109db45bbb38e5b0d4147770d1d7d2253b73a66ed"
+            },
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.arm64_monterey.bottle.tar.gz",
+              "sha256": "8ddd1307221e3a07c85540f5f960e6461c44f7a08a7fc82ad2ebe8ce640b45a4"
+            },
+            "sonoma": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.sonoma.bottle.tar.gz",
+              "sha256": "f658e4e63d62acf2d42b63393291ba780e693e994c54a26b1df5de61a2b874ca"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.ventura.bottle.tar.gz",
+              "sha256": "d42520fffc0aff7d901e564cf03d8a60756cf2f5c07e6cbfd9f011eabd96692f"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.monterey.bottle.tar.gz",
+              "sha256": "42cc69a0abd1bdc7dd390c7a61b61574f6dfd86f6f9e450161e2138aa85850f3"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/curl-8.8.0.x86_64_linux.bottle.tar.gz",
+              "sha256": "98513bfbe492f9217b3142f2bbeed216972e06951e201a7e1d5f2d84f7d457e0"
+            }
+          }
+        }
+      }
+    },
+    "cask": {
+      "feishu": {
+        "version": "7.22.5,d8ec86cd",
+        "options": {
+          "full_name": "feishu"
+        }
+      }
+    }
+  },
+  "system": {
+    "macos": {
+      "sonoma": {
+        "HOMEBREW_VERSION": "4.3.10",
+        "HOMEBREW_PREFIX": "/opt/homebrew",
+        "Homebrew/homebrew-core": "api",
+        "CLT": "15.0.3.9.4",
+        "Xcode": "15.4",
+        "macOS": "14.5"
+      }
+    }
+  }
+}
