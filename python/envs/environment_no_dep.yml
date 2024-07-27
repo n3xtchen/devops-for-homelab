@@ -1,0 +1,6 @@
+name: homelab
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+prefix: /opt/homebrew/Caskroom/miniconda/base/envs/homelab
