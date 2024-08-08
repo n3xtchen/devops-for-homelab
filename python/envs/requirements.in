@@ -1,3 +1,4 @@
+pipx
 pip-tools
 
 pymysql # 比 mysql-connector-python 性能好
