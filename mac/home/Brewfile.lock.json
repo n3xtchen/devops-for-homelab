@@ -4164,6 +4164,55 @@
             }
           }
         }
+      },
+      "pyenv": {
+        "version": "2.4.12",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles",
+          "files": {
+            "arm64_sequoia": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.arm64_sequoia.bottle.tar.gz",
+              "sha256": "3e2296265fde74a94e534251ff41b7d79996c520caf74d6198278df4ff3a8678"
+            },
+            "arm64_sonoma": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.arm64_sonoma.bottle.tar.gz",
+              "sha256": "df3a3424a5a7aec3ce6d3c4e874b44b4e0eef0feb322d0dfa50f044669d96840"
+            },
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.arm64_ventura.bottle.tar.gz",
+              "sha256": "2852285936a1d35ecb409c7c48fe830c880b124620e82e7c0f4c988ef961302d"
+            },
+            "arm64_monterey": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.arm64_monterey.bottle.tar.gz",
+              "sha256": "8f8b6a020b52c38453addc56623cf54154266ac3971599b5b53f432d5f3703a6"
+            },
+            "sonoma": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.sonoma.bottle.tar.gz",
+              "sha256": "2b4149ba7a5bfd0dc51f9f79aebc2e592d1e8d99372ffc41dda598a8194b60f8"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.ventura.bottle.tar.gz",
+              "sha256": "5716572b7976433d6762cbdadef738798966c185b9792eb32acbabd1403bb724"
+            },
+            "monterey": {
+              "cellar": ":any",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.monterey.bottle.tar.gz",
+              "sha256": "e2df95bd2620261b54ff8b123dd82f4a5c91437a8282ac28ce0219e9c056df40"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/pyenv-2.4.12.x86_64_linux.bottle.tar.gz",
+              "sha256": "e94ee2efe51b69049e756444616861939d5ab7bb2f3e1f677215fb761517d963"
+            }
+          }
+        }
       }
     },
     "cask": {
