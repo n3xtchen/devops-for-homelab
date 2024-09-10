@@ -2800,9 +2800,6 @@
               "sha256": "5bed579de1113ca5b722064b7a60f63d690e1d758cfb494b98105f0c97d732cb"
             }
           }
-        },
-        "options": {
-          "restart_service": true
         }
       },
       "ncdu": {
