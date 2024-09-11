@@ -8,6 +8,7 @@ brew "diff-so-fancy"
 brew "jq"
 brew "libevent"
 brew "mackup"
+brew "mas"
 brew "node"
 brew "tmux"
 brew "vim"
@@ -21,3 +22,5 @@ cask "miniconda"
 cask "obsidian"
 cask "orbstack"
 cask "wpsoffice-cn"
+mas "WPS Office", id: 1443749478
+mas "Xcode", id: 497799835
