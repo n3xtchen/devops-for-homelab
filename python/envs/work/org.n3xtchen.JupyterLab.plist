@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>org.n3xtchen.jupyter</string>
+          <key>ProgramArguments</key>
+          <array>
+              <string>/opt/pyenv/versions/miniforge3-24.9.2-0/envs/work-jupy/bin/jupyter</string>
+              <string>lab</string>
+              <string>--ip</string>
+              <string>0.0.0.0</string>
+              <string>--notebook-dir</string>
+              <string>/Users/n3xtchen/Desktop/jupyter_home</string>
+              <string>--no-browser</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>/tmp/jupyter-lab.stderr</string>
+          <key>StandardOutPath</key>
+          <string>/tmp/jupyter-lab.stdout</string>
+      </dict>
+      </plist>
