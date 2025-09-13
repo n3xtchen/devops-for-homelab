@@ -1,0 +1,23 @@
+# work
+pyspark==3.5.2
+synapseml==1.0.11
+easydict==1.13
+boto3==1.38.43
+seaborn==0.13.2
+scikit-optimize==0.10.2
+joblib==1.5.1
+pyarrow==9.0.0
+tensorflow==2.13.0
+pandas==2.2.3
+numpy==1.23.5
+scikit-learn==1.6.1
+catboost==1.2.7
+xgboost==2.1.4
+lightgbm==4.4.0
+requests==2.32.4
+matplotlib==3.9.1
+scipy==1.13.1
+plotly==6.1.2
+graphviz==0.21
+six==1.17.0
+networkx==3.2.1

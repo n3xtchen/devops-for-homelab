@@ -1,13 +1,14 @@
 pipx
 pip-tools
 
+httpx[http2]   # 取代 requests
+
+# db
 pymysql # 比 mysql-connector-python 性能好
 psycopg[binary]
-httpx[http2]   # 取代 requests
 
 # notebook
 ipykernel
 jupysql # 取代 ipythonsql
 
-# data science
-pandas
+
