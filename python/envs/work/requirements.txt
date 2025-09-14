@@ -85,6 +85,10 @@ click==8.1.8
     # via
     #   pip-tools
     #   userpath
+cmdstanpy==1.2.5
+    # via
+    #   -c constraints.txt
+    #   prophet
 comm==0.2.3
     # via
     #   ipykernel
@@ -101,6 +105,10 @@ cycler==0.12.1
     # via
     #   -c constraints.txt
     #   matplotlib
+cython==3.1.3
+    # via
+    #   -c constraints.txt
+    #   pmdarima
 debugpy==1.8.16
     # via ipykernel
 decorator==5.2.1
@@ -174,6 +182,10 @@ hdijupyterutils==0.23.0
     # via
     #   autovizwidget
     #   sparkmagic
+holidays==0.80
+    # via
+    #   -c constraints.txt
+    #   prophet
 hpack==4.1.0
     # via h2
 httpcore==1.0.9
@@ -205,6 +217,7 @@ importlib-resources==6.5.2
     # via
     #   -c constraints.txt
     #   matplotlib
+    #   prophet
 ipykernel==6.30.1
     # via
     #   -r requirements.in
@@ -249,6 +262,7 @@ joblib==1.5.1
     # via
     #   -c constraints.txt
     #   -r requirements-work.in
+    #   pmdarima
     #   scikit-learn
     #   scikit-optimize
 json5==0.12.1
@@ -351,6 +365,7 @@ matplotlib==3.9.1
     #   -c constraints.txt
     #   -r requirements-work.in
     #   catboost
+    #   prophet
     #   seaborn
 matplotlib-inline==0.1.7
     # via
@@ -399,18 +414,24 @@ numpy==1.23.5
     #   -c constraints.txt
     #   -r requirements-work.in
     #   catboost
+    #   cmdstanpy
     #   contourpy
     #   h5py
     #   hdijupyterutils
     #   lightgbm
     #   matplotlib
     #   pandas
+    #   patsy
+    #   pmdarima
+    #   prophet
     #   pyarrow
     #   scikit-learn
     #   scikit-optimize
     #   scipy
     #   seaborn
     #   sparkmagic
+    #   stanio
+    #   statsmodels
     #   tensorboard
     #   tensorflow-macos
     #   xgboost
@@ -437,7 +458,9 @@ packaging==24.1
     #   nbconvert
     #   pipx
     #   plotly
+    #   pmdarima
     #   scikit-optimize
+    #   statsmodels
     #   tensorflow-macos
 pandas==2.2.3
     # via
@@ -445,13 +468,21 @@ pandas==2.2.3
     #   -r requirements-work.in
     #   autovizwidget
     #   catboost
+    #   cmdstanpy
     #   hdijupyterutils
+    #   pmdarima
+    #   prophet
     #   seaborn
     #   sparkmagic
+    #   statsmodels
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.5
     # via jedi
+patsy==1.0.1
+    # via
+    #   -c constraints.txt
+    #   statsmodels
 pexpect==4.9.0
     # via ipython
 pillow==11.3.0
@@ -476,6 +507,10 @@ plotly==6.1.2
     #   -r requirements-work.in
     #   autovizwidget
     #   catboost
+pmdarima==2.0.4
+    # via
+    #   -c constraints.txt
+    #   -r requirements-work.in
 posthog==6.7.4
     # via ploomber-core
 prettytable==3.16.0
@@ -486,6 +521,10 @@ prompt-toolkit==3.0.52
     # via
     #   ipython
     #   jupyter-console
+prophet==1.1.6
+    # via
+    #   -c constraints.txt
+    #   -r requirements-work.in
 protobuf==4.25.8
     # via
     #   -c constraints.txt
@@ -552,6 +591,7 @@ python-dateutil==2.9.0.post0
     #   -c constraints.txt
     #   arrow
     #   botocore
+    #   holidays
     #   jupyter-client
     #   matplotlib
     #   pandas
@@ -621,6 +661,7 @@ scikit-learn==1.6.1
     # via
     #   -c constraints.txt
     #   -r requirements-work.in
+    #   pmdarima
     #   scikit-optimize
 scikit-optimize==0.10.2
     # via
@@ -632,8 +673,10 @@ scipy==1.13.1
     #   -r requirements-work.in
     #   catboost
     #   lightgbm
+    #   pmdarima
     #   scikit-learn
     #   scikit-optimize
+    #   statsmodels
     #   xgboost
 seaborn==0.13.2
     # via
@@ -666,6 +709,15 @@ sqlparse==0.5.3
     # via jupysql
 stack-data==0.6.3
     # via ipython
+stanio==0.5.1
+    # via
+    #   -c constraints.txt
+    #   cmdstanpy
+statsmodels==0.14.5
+    # via
+    #   -c constraints.txt
+    #   -r requirements-work.in
+    #   pmdarima
 synapseml==1.0.11
     # via
     #   -c constraints.txt
@@ -719,6 +771,11 @@ tornado==6.5.2
     #   notebook
     #   sparkmagic
     #   terminado
+tqdm==4.67.1
+    # via
+    #   -c constraints.txt
+    #   cmdstanpy
+    #   prophet
 traitlets==5.14.3
     # via
     #   ipykernel
@@ -761,6 +818,7 @@ urllib3==1.26.20
     # via
     #   -c constraints.txt
     #   botocore
+    #   pmdarima
     #   requests
 userpath==1.9.2
     # via pipx

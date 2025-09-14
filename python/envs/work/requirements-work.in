@@ -1,4 +1,5 @@
 # work
+-c constraints.txt
 pyspark==3.5.2
 synapseml==1.0.11
 easydict==1.13
@@ -21,3 +22,19 @@ plotly==6.1.2
 graphviz==0.21
 six==1.17.0
 networkx==3.2.1
+
+# automl
+# complicted dependencies
+# pyarrow: 21.0.0 < -> 9.0.0
+# numpy: 1.26.4 < -> 1.23.5
+# pyspark: 3.5.1 < -> 3.5.2
+# lightgbm: 4.5.0 < -> 4.4.0
+# pandas: 2.2.3 < -> 2.2.3
+# 没有使用的
+# blis: 0.7.11 
+# pyyaml: 6.0.2
+# urllib3: 1.26.17
+statsmodels==0.14.5
+pmdarima==2.0.4
+prophet==1.1.6
+# autogluon.tabular==1.2
