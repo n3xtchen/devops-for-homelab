@@ -7,9 +7,10 @@ httpx[http2]   # 取代 requests
 # db
 pymysql # 比 mysql-connector-python 性能好
 psycopg[binary]
+duckdb
 
 # notebook
 ipykernel
 jupysql # 取代 ipythonsql
 
-
+itables

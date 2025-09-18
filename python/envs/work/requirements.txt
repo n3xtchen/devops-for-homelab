@@ -119,6 +119,8 @@ defusedxml==0.7.1
     # via nbconvert
 distro==1.9.0
     # via posthog
+duckdb==1.4.0
+    # via -r requirements.in
 easydict==1.13
     # via
     #   -c constraints.txt
@@ -231,6 +233,7 @@ ipython==8.18.1
     #   hdijupyterutils
     #   ipykernel
     #   ipywidgets
+    #   itables
     #   jupyter-console
     #   sparkmagic
 ipython-genutils==0.2.0
@@ -244,6 +247,8 @@ ipywidgets==8.1.7
     #   sparkmagic
 isoduration==20.11.0
     # via jsonschema
+itables==2.5.2
+    # via -r requirements.in
 jedi==0.19.2
     # via ipython
 jinja2==3.1.6
@@ -418,6 +423,7 @@ numpy==1.23.5
     #   contourpy
     #   h5py
     #   hdijupyterutils
+    #   itables
     #   lightgbm
     #   matplotlib
     #   pandas
@@ -470,6 +476,7 @@ pandas==2.2.3
     #   catboost
     #   cmdstanpy
     #   hdijupyterutils
+    #   itables
     #   pmdarima
     #   prophet
     #   seaborn
