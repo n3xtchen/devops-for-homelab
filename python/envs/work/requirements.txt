@@ -120,6 +120,10 @@ defusedxml==0.7.1
 distro==1.9.0
     # via posthog
 duckdb==1.4.0
+    # via
+    #   -r requirements.in
+    #   duckdb-engine
+duckdb-engine==0.17.0
     # via -r requirements.in
 easydict==1.13
     # via
@@ -455,6 +459,7 @@ packaging==24.1
     # via
     #   -c constraints.txt
     #   build
+    #   duckdb-engine
     #   ipykernel
     #   jupyter-events
     #   jupyter-server
@@ -522,7 +527,7 @@ posthog==6.7.4
     # via ploomber-core
 prettytable==3.16.0
     # via jupysql
-prometheus-client==0.22.1
+prometheus-client==0.23.1
     # via jupyter-server
 prompt-toolkit==3.0.52
     # via
@@ -709,7 +714,9 @@ soupsieve==2.8
 sparkmagic==0.23.0
     # via -r requirements-jupy.in
 sqlalchemy==2.0.24
-    # via jupysql
+    # via
+    #   duckdb-engine
+    #   jupysql
 sqlglot==27.14.0
     # via jupysql
 sqlparse==0.5.3
