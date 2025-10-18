@@ -9,7 +9,7 @@
           <string>org.n3xtchen.jupyter</string>
           <key>ProgramArguments</key>
           <array>
-              <string>/opt/pyenv/versions/miniconda3-latest/envs/homelab-jupy/bin/jupyter</string>
+              <string>/opt/pyenv/versions/3.14.0/envs/homelab/bin/jupyter</string>
               <string>lab</string>
               <string>--ip</string>
               <string>0.0.0.0</string>
