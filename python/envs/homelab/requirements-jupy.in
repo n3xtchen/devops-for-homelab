@@ -1,6 +1,4 @@
--c constraints.txt
-rpds-py>=0.26.0  # jupyter 依赖的 jsonschema 默认是 0.22 但是 0.26 才兼容 3.14
-jupyterlab
+nbformat>=4.2.0 # render mimetype 需要
+
 anywidget
 plotly
-voila

@@ -1,5 +1,4 @@
 # work
--c constraints.txt
 pyspark==3.5.2
 synapseml==1.0.11
 easydict==1.13

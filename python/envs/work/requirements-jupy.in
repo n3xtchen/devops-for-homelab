@@ -1,8 +1,7 @@
--c constraints.txt
-# notebook
-jupyterlab
-ipywidgets
-voila
+ipykernel
+jupysql # 取代 ipythonsql
+
+itables
 
 sparkmagic
 
