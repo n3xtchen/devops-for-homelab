@@ -1,4 +1,3 @@
--c constraints.txt
 pipx
 pip-tools
 
@@ -9,9 +8,3 @@ pymysql # 比 mysql-connector-python 性能好
 psycopg[binary]
 duckdb
 duckdb-engine
-
-# notebook
-ipykernel
-jupysql # 取代 ipythonsql
-
-itables

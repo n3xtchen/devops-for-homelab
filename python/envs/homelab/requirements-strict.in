@@ -8,3 +8,4 @@ httpx[http2]   # 取代 requests
 # data science
 numpy>=2.3.0   # 之前版本不支持 3.14
 pandas
+scipy
