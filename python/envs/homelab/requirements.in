@@ -1,9 +1,1 @@
-# notebook
-ipykernel
-jupysql # 取代 ipythonsql
 
-duckdb
-duckdb-engine
-
-scikit-learn
-itables

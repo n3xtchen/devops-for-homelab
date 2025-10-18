@@ -1,5 +1,7 @@
 pymysql # 比 mysql-connector-python 性能好
 psycopg2-binary  # psycopg[binary] 不支持 3.14
+duckdb
+duckdb-engine
 
 h11>=0.16.0
 httpcore>=1.0.8  # httpx 依赖它， 1.0.8 之后才能兼容 3.14
@@ -9,3 +11,4 @@ httpx[http2]   # 取代 requests
 numpy>=2.3.0   # 之前版本不支持 3.14
 pandas
 scipy
+scikit-learn

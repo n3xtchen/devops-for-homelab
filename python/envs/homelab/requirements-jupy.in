@@ -1,4 +1,10 @@
 nbformat>=4.2.0 # render mimetype 需要
+ipykernel
+
+itables
 
 anywidget
 plotly
+
+
+jupysql # 取代 ipythonsql
