@@ -50,10 +50,14 @@ certifi==2024.7.4
     #   httpx
     #   requests
 cffi==2.0.0
-    # via argon2-cffi-bindings
+    # via
+    #   argon2-cffi-bindings
+    #   cryptography
 charset-normalizer==3.3.2
     # via
     #   -c constraints.txt
+    #   pdfminer-six
+    #   reportlab
     #   requests
 click==8.1.7
     # via
@@ -64,6 +68,8 @@ comm==0.2.2
     #   -c constraints.txt
     #   ipykernel
     #   ipywidgets
+cryptography==46.0.3
+    # via pdfminer-six
 debugpy==1.8.2
     # via
     #   -c constraints.txt
@@ -281,6 +287,7 @@ packaging==24.1
     #   nbconvert
     #   pipx
     #   plotly
+    #   pytesseract
     #   pytest
 pandas==2.2.2
     # via
@@ -293,10 +300,23 @@ parso==0.8.4
     # via
     #   -c constraints.txt
     #   jedi
+pdf2image==1.17.0
+    # via -r requirements.in
+pdfminer-six==20251107
+    # via pdfplumber
+pdfplumber==0.11.8
+    # via -r requirements.in
 pexpect==4.9.0
     # via
     #   -c constraints.txt
     #   ipython
+pillow==12.0.0
+    # via
+    #   -r requirements.in
+    #   pdf2image
+    #   pdfplumber
+    #   pytesseract
+    #   reportlab
 pipx==1.6.0
     # via
     #   -c constraints.txt
@@ -369,6 +389,14 @@ pymysql==1.1.1
     # via
     #   -c constraints.txt
     #   -r requirements-strict.in
+pypdf==6.4.0
+    # via -r requirements.in
+pypdfium2==5.1.0
+    # via
+    #   -r requirements.in
+    #   pdfplumber
+pytesseract==0.3.13
+    # via -r requirements.in
 pytest==8.4.2
     # via -r requirements-dev.in
 python-dateutil==2.9.0.post0
@@ -400,6 +428,8 @@ referencing==0.35.1
     #   jsonschema
     #   jsonschema-specifications
     #   jupyter-events
+reportlab==4.4.5
+    # via -r requirements.in
 requests==2.32.3
     # via
     #   -c constraints.txt
